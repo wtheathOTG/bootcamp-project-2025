@@ -24,11 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <div className="px-16 pt-32 pb-24 flex justify-center">
+          <div className="px-16 pt-32 pb-16 flex justify-center">
               <div className="w-full max-w-280 grid grid-cols-2 text-white">
                   <Nav />
                   <div>
