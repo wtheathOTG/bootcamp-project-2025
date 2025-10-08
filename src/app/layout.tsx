@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
-          <div className="px-16 pt-32 flex justify-center">
+          <div className="px-16 pt-32 pb-24 flex justify-center">
               <div className="w-full max-w-280 grid grid-cols-2 text-white">
                   <Nav />
                   <div>
