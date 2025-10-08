@@ -8,13 +8,15 @@ import Link from 'next/link'
 function Nav() {
     return (
         <div>
-            <div className="sticky top-32 text-foreground">
-                <p className="text-5xl font-bold pb-4">Will Heath</p>
-                <p className="text-xl pb-4 font-bold text-secondary">Developer & Designer</p>
-                <p className="max-w-88 text-lg text-muted-foreground">
-                    I am developer interested in system design and user experience.
-                </p>
-                <div className="flex flex-col items-start justify-between gap-4 pt-16 pb-40 text-muted-foreground">
+            <div className="sticky h-[70lvh] top-32 text-foreground flex flex-col justify-between">
+                <div className="space-y-4">
+                    <p className="text-5xl font-bold">Will Heath</p>
+                    <p className="text-xl font-bold text-secondary">Developer & Designer</p>
+                    <p className="md:max-w-88 text-lg text-muted-foreground">
+                        I am developer interested in system design and user experience.
+                    </p>
+                </div>
+                <div className="flex flex-col items-start justify-between gap-4 text-muted-foreground">
                     <Link
                         className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
                         href="/"

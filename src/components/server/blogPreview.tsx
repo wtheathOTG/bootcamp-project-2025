@@ -1,10 +1,29 @@
 import React from 'react';
 import Link from "next/link";
+import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 
 function BlogPreview() {
     return (
         <Link href="/blog/blog1">
-            <div
+            <Card className="group hover:bg-muted transition-all duration-200 ease-in-out">
+                <CardHeader>
+                    <CardTitle className="text-xl">Blog Title</CardTitle>
+                    <CardDescription>Author</CardDescription>
+                    <CardAction
+                        className="text-muted-foreground group-hover:text-foreground transition-all duration-200 ease-in-out"
+                    >
+                        1 day ago
+                    </CardAction>
+                </CardHeader>
+                <CardContent>
+                    <p>
+                        This is a short description of the article. I am going to keep writing
+                        so that this paragraph fills up. Here is one last sentence to fill up
+                        a little more space...
+                    </p>
+                </CardContent>
+            </Card>
+            {/*<div
                 className="px-6 py-4 border border-border rounded-md
                     hover:bg-muted transition-all duration-200 ease-in-out"
             >
@@ -17,7 +36,7 @@ function BlogPreview() {
                     so that this paragraph fills up. Here is one last sentence to fill up
                     a little more space...
                 </p>
-            </div>
+            </div>*/}
         </Link>
     );
 }
