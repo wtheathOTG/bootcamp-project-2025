@@ -5,12 +5,24 @@ import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import {SplitText} from "gsap/SplitText";
 
-function Animations() {
+function GlobalAnimations() {
     //All intro animations using opacity must set initial css opacity to 0 to avoid flicker on load
     useGSAP(() => {
         gsap.registerPlugin(SplitText);
 
         //fade in on initial load
+        const siteBorder = document.querySelector("#site-border");
+        gsap.set(siteBorder, {
+            "--site-border-alpha": "0%",
+            borderColor: "color-mix(in oklch, var(--border) var(--site-border-alpha), transparent)"
+        });
+        gsap.to(siteBorder, {
+            "--site-border-alpha": "100%",
+            duration: 0.6,
+            ease: "power1.out",
+            delay: 0.3
+        });
+
         gsap.from(".nav-hero", {
             x: -10,
             autoAlpha: 0,
@@ -29,19 +41,10 @@ function Animations() {
             immediateRender: false,
         });
 
-        gsap.from("#page-content", {
-            y: 10,
-            autoAlpha: 0,
-            ease: "power1.out",
-            delay: 0.3,
-            immediateRender: false,
-        });
-
         //Nav name hover effect
         const navName = document.querySelector("#nav-name");
         const split = new SplitText(navName, {type: "chars"});
         let waveTween: gsap.core.Tween;
-
         navName?.addEventListener("mouseenter", () => {
             waveTween?.kill();
 
@@ -58,7 +61,6 @@ function Animations() {
                 }
             });
         });
-
         navName?.addEventListener("mouseleave", () => {
             waveTween?.kill();
 
@@ -76,4 +78,4 @@ function Animations() {
     );
 }
 
-export default Animations;
+export default GlobalAnimations;

@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPreview from "@/components/server/blogPreview";
 import {blogs} from "@/blog";
+import ContactForm from "@/components/server/contactForm";
 
 function Blogs() {
     return (

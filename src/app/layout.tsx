@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/server/nav";
-import Animations from "@/components/client/Animations";
+import GlobalAnimations from "@/components/client/GlobalAnimations";
+import PageTransitionAnimations from "@/components/client/PageTransitionAnimations";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +32,9 @@ export default function RootLayout({
       >
           <div className="flex justify-center min-h-screen">
               <div
+                  id="site-border"
                   className="w-full max-w-296 px-16 pt-32 pb-16 space-y-8 md:grid md:grid-cols-2 md:space-y-0
-                  border-x-2 border-dashed border-border text-white"
+                  border-x-2 border-dashed border-transparent text-white"
               >
                   <Nav />
                   <div id="page-content">
@@ -40,7 +42,8 @@ export default function RootLayout({
                   </div>
               </div>
           </div>
-          <Animations />
+          <GlobalAnimations />
+      <PageTransitionAnimations />
       </body>
     </html>
   );

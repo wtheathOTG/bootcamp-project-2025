@@ -202,6 +202,7 @@ body::-webkit-scrollbar {
 
 @layer base {
   * {
+      color: inherit;
     @apply border-border outline-ring/50;
     }
   body {
