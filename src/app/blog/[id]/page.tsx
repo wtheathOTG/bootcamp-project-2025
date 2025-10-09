@@ -1,6 +1,5 @@
 import React from 'react';
 import {blogs} from "@/blog";
-import PageTransitionAnimations from "@/components/client/PageTransitionAnimations";
 
 async function Page({ params }: { params: Promise<{id: string}> }) {
     const {id} = await params;
