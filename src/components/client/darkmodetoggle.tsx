@@ -6,7 +6,7 @@ import DarkModeIcon from "@/components/icons/darkmodeicon";
 import LightModeIcon from "@/components/icons/lightmodeicon";
 
 function DarkModeToggle() {
-    let [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(true);
     const isFirstRender = useRef(true);
 
     useEffect(() => {

@@ -1,17 +1,8 @@
-import {forwardRef} from "react";
 import * as React from "react";
 
-type IconProps = React.ComponentProps<"svg">;
-
-export const LightModeIcon = forwardRef<SVGSVGElement, IconProps>(
-    ({ className, ...props }, ref) => {
+export default function LightModeIcon({ className }: {className?: string}) {
     return (
-        <svg
-            ref={ref}
-            className={className}
-            viewBox="0 -960 960 960"
-            {...props}
-        >
+        <svg className={className} viewBox="0 -960 960 960">
             <path
                 stroke="currentColor"
                 strokeWidth="30"
@@ -20,6 +11,4 @@ export const LightModeIcon = forwardRef<SVGSVGElement, IconProps>(
             />
         </svg>
     );
-});
-
-export default LightModeIcon;
+}
