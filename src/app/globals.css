@@ -147,7 +147,7 @@ body::-webkit-scrollbar {
 
 .dark {
     --background: oklch(0.1797 0.0043 308.1928);
-    --foreground: oklch(0.8109 0 0);
+    --foreground: oklch(0.85 0 0);
     --card: oklch(0.1822 0 0);
     --card-foreground: oklch(0.8109 0 0);
     --popover: oklch(0.1797 0.0043 308.1928);

@@ -2,7 +2,7 @@ import React from 'react';
 
 function About() {
     return (
-        <div className="space-y-4 text-lg text-muted-foreground">
+        <div className="space-y-4 text-lg text-foreground">
             <p>
                 I am a freshman at Cal Poly San Luis Obispo. Since starting my programming journey in game development, I
                 have learned the importance of user experience. It is imperative that an application interface is appealing, a
