@@ -33,7 +33,7 @@ export default function RootLayout({
           <div className="flex justify-center min-h-screen">
               <div
                   id="site-border"
-                  className="w-full max-w-296 px-16 pt-32 pb-16 space-y-8 md:grid md:grid-cols-2 md:space-y-0
+                  className="w-full max-w-296 px-8 pt-32 pb-16 space-y-16 md:grid md:grid-cols-2 md:space-y-0 lg:px-16
                   border-x-2 border-dashed border-transparent text-white"
               >
                   <Nav />

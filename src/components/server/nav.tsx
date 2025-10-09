@@ -9,7 +9,7 @@ import DarkModeToggle from "@/components/client/darkmodetoggle";
 function Nav({ className }: {className?: string}) {
     return (
         <div className={className}>
-            <div className="sticky h-[70lvh] max-h-144 top-32 text-foreground flex flex-col justify-between">
+            <div className="sticky md:h-[70lvh] max-h-144 top-32 text-foreground flex flex-col flex-start gap-y-8 md:justify-between">
                 <div className="space-y-4">
                     <div className="nav-hero flex justify-start items-center gap-x-4">
                         <h1 id="nav-name" className="inline-block text-5xl font-bold">Will Heath</h1>
@@ -22,25 +22,29 @@ function Nav({ className }: {className?: string}) {
                 </div>
                 <div className="flex flex-col items-start justify-between gap-4 text-muted-foreground">
                     <Link
-                        className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
+                        className="hover:translate-x-2 hover:text-primary active:translate-x-2 active:text-primary
+                            transition-all duration-200 ease-in-out"
                         href="/"
                     >
                         <p className="nav-links">About</p>
                     </Link>
                     <Link
-                        className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
+                        className="hover:translate-x-2 hover:text-primary active:translate-x-2 active:text-primary
+                            transition-all duration-200 ease-in-out"
                         href="/"
                     >
                         <p className="nav-links">Projects</p>
                     </Link>
                     <Link
-                        className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
+                        className="hover:translate-x-2 hover:text-primary active:translate-x-2 active:text-primary
+                            transition-all duration-200 ease-in-out"
                         href="/blog"
                     >
                         <p className="nav-links">Blog</p>
                     </Link>
                     <Link
-                        className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
+                        className="hover:translate-x-2 hover:text-primary active:translate-x-2 active:text-primary
+                            transition-all duration-200 ease-in-out"
                         href="/contact"
                     >
                         <p className="nav-links">Contact</p>
