@@ -20,11 +20,13 @@ function BlogPreview({blog}: {blog: Blog}) {
                 <CardContent>
                     <p>{blog.description}</p>
                 </CardContent>
-                <CardFooter>
-                    {blog.tags?.map((tag, idx) => (
-                        <Badge key={idx}>{tag}</Badge>
-                    ))}
-                </CardFooter>
+                {(blog.tags && blog.tags.length > 0) &&
+                    <CardFooter>
+                        {blog.tags.map((tag, idx) => (
+                            <Badge key={idx}>{tag}</Badge>
+                        ))}
+                    </CardFooter>
+                }
             </Card>
         </Link>
     );
