@@ -4,13 +4,17 @@ import {Button} from "@/components/ui/button";
 import GithubIcon from "@/components/icons/githubIcon";
 import InstagramIcon from "@/components/icons/instagramicon";
 import Link from 'next/link'
+import DarkModeToggle from "@/components/client/darkmodetoggle";
 
 function Nav({ className }: {className?: string}) {
     return (
         <div className={className}>
             <div className="sticky h-[70lvh] max-h-144 top-32 text-foreground flex flex-col justify-between">
                 <div className="space-y-4">
-                    <h1 id="nav-name" className="inline-block nav-hero text-5xl font-bold">Will Heath</h1>
+                    <div className="nav-hero flex justify-start items-center gap-x-4">
+                        <h1 id="nav-name" className="inline-block text-5xl font-bold">Will Heath</h1>
+                        <DarkModeToggle />
+                    </div>
                     <p className="nav-hero text-xl font-bold text-secondary">Developer & Designer</p>
                     <p className="nav-hero md:max-w-96 text-lg text-muted-foreground">
                         I am developer interested in system design and user experience.
