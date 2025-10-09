@@ -29,8 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <div className="px-16 pt-32 pb-16 flex justify-center">
-              <div className="w-full max-w-280 space-y-8 md:grid md:grid-cols-2 md:space-y-0 text-white">
+          <div className="flex justify-center min-h-screen">
+              <div
+                  className="w-full max-w-296 px-16 pt-32 pb-16 space-y-8 md:grid md:grid-cols-2 md:space-y-0
+                  border-x-2 border-dashed border-border text-white"
+              >
                   <Nav />
                   <div id="page-content">
                       {children}

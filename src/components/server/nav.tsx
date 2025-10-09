@@ -5,14 +5,14 @@ import GithubIcon from "@/components/icons/githubIcon";
 import InstagramIcon from "@/components/icons/instagramicon";
 import Link from 'next/link'
 
-function Nav() {
+function Nav({ className }: {className?: string}) {
     return (
-        <div>
+        <div className={className}>
             <div className="sticky h-[70lvh] max-h-144 top-32 text-foreground flex flex-col justify-between">
                 <div className="space-y-4">
-                    <h1 className="nav-hero text-5xl font-bold">Will Heath</h1>
+                    <h1 id="nav-name" className="inline-block nav-hero text-5xl font-bold">Will Heath</h1>
                     <p className="nav-hero text-xl font-bold text-secondary">Developer & Designer</p>
-                    <p className="nav-hero md:max-w-88 text-lg text-muted-foreground">
+                    <p className="nav-hero md:max-w-96 text-lg text-muted-foreground">
                         I am developer interested in system design and user experience.
                     </p>
                 </div>
@@ -37,7 +37,7 @@ function Nav() {
                     </Link>
                     <Link
                         className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
-                        href="/"
+                        href="/contact"
                     >
                         <p className="nav-links">Contact</p>
                     </Link>
