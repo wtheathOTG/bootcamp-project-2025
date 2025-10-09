@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from "next/link";
 import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {Badge} from "@/components/ui/badge";
 
 function BlogPreview() {
     return (
         <Link href="/blog/blog1">
-            <Card className="group hover:bg-muted transition-all duration-200 ease-in-out">
+            <Card className="group bg-transparent hover:bg-muted transition-all duration-200 ease-in-out">
                 <CardHeader>
                     <CardTitle className="text-xl">Blog Title</CardTitle>
                     <CardDescription>Author</CardDescription>
@@ -22,6 +23,9 @@ function BlogPreview() {
                         a little more space...
                     </p>
                 </CardContent>
+                <CardFooter>
+                    <Badge>Important</Badge>
+                </CardFooter>
             </Card>
             {/*<div
                 className="px-6 py-4 border border-border rounded-md
