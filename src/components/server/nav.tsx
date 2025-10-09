@@ -8,7 +8,7 @@ import Link from 'next/link'
 function Nav() {
     return (
         <div>
-            <div className="sticky h-[70lvh] top-32 text-foreground flex flex-col justify-between">
+            <div className="sticky h-[70lvh] max-h-144 top-32 text-foreground flex flex-col justify-between">
                 <div className="space-y-4">
                     <h1 className="nav-hero text-5xl font-bold">Will Heath</h1>
                     <p className="nav-hero text-xl font-bold text-secondary">Developer & Designer</p>
