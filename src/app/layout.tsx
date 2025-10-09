@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/server/nav";
+import Animations from "@/components/client/Animations";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,11 +32,12 @@ export default function RootLayout({
           <div className="px-16 pt-32 pb-16 flex justify-center">
               <div className="w-full max-w-280 space-y-8 md:grid md:grid-cols-2 md:space-y-0 text-white">
                   <Nav />
-                  <div>
+                  <div id="page-content">
                       {children}
                   </div>
               </div>
           </div>
+          <Animations />
       </body>
     </html>
   );

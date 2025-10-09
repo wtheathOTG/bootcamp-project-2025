@@ -10,9 +10,9 @@ function Nav() {
         <div>
             <div className="sticky h-[70lvh] top-32 text-foreground flex flex-col justify-between">
                 <div className="space-y-4">
-                    <p className="text-5xl font-bold">Will Heath</p>
-                    <p className="text-xl font-bold text-secondary">Developer & Designer</p>
-                    <p className="md:max-w-88 text-lg text-muted-foreground">
+                    <h1 className="nav-hero text-5xl font-bold">Will Heath</h1>
+                    <p className="nav-hero text-xl font-bold text-secondary">Developer & Designer</p>
+                    <p className="nav-hero md:max-w-88 text-lg text-muted-foreground">
                         I am developer interested in system design and user experience.
                     </p>
                 </div>
@@ -21,28 +21,28 @@ function Nav() {
                         className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
                         href="/"
                     >
-                        About
+                        <p className="nav-links">About</p>
                     </Link>
                     <Link
                         className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
                         href="/"
                     >
-                        Projects
+                        <p className="nav-links">Projects</p>
                     </Link>
                     <Link
                         className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
                         href="/blog"
                     >
-                        Blog
+                        <p className="nav-links">Blog</p>
                     </Link>
                     <Link
                         className="hover:translate-x-2 hover:text-primary transition-all duration-200 ease-in-out"
                         href="/"
                     >
-                        Contact
+                        <p className="nav-links">Contact</p>
                     </Link>
                 </div>
-                <div className="flex justify-start gap-x-4">
+                <div className="nav-links flex justify-start gap-x-4">
                     <Button variant="grow" size="icon" asChild>
                         <a target="_blank" href="https://www.linkedin.com/in/william-heath06">
                             <LinkedInIcon className="size-6 fill-muted-foreground"/>
