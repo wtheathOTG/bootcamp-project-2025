@@ -39,7 +39,7 @@ async function Page({ params }: { params: Promise<{id: string}> }) {
                         src={`${blog?.image}`}
                         alt={`${blog?.imageAlt}`}
                         fill
-                        className="h-full w-full rounded-md object-cover"
+                        className="h-full w-full rounded-md object-cover bg-card"
                     />
                 </AspectRatio>
             </div>
