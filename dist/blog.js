@@ -1,5 +1,4 @@
-"use strict";
-const blogs = [
+export const blogs = [
     {
         title: "Blog Post 1",
         date: "Oct 9, 2025",
