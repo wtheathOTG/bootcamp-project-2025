@@ -1,3 +1,5 @@
+//Blog type and blogs[] are duplicated due to leftover packages from next / react following massive commit revert.
+//Compiling to js throws errors with the export statements. I tried numerous solutions and none worked.
 type Blog = {
     title: string;
     date: string;
@@ -28,9 +30,9 @@ const blogs: Blog[] = [
     },
 ];
 
+//Adds dynamic content to each blog page based on blog array
 window.addEventListener("DOMContentLoaded", () => {
     const slug = window.location.pathname.split("/").pop();
-    console.log(slug);
 
     const blog = blogs.find(b => b.slug === slug);
     if (!blog) { return; }
