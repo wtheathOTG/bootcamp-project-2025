@@ -21,7 +21,7 @@ function BlogPreview({blog}: {blog: Blog}) {
                     <p>{blog.description}</p>
                 </CardContent>
                 {(blog.tags && blog.tags.length > 0) &&
-                    <CardFooter>
+                    <CardFooter className="flex justify-start gap-x-2">
                         {blog.tags.map((tag, idx) => (
                             <Badge key={idx}>{tag}</Badge>
                         ))}
