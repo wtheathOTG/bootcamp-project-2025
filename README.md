@@ -1,4 +1,4 @@
-## Visit the Milestone 1 website [Here](https://wtheathOTG.github.io)!
+## Visit the Milestone 1 website [Here](https://wtheathOTG.github.io/bootcamp-project-2025)!
 ### Visit my WIP final Bootcamp website [Here](https://bootcamp-project-2025.vercel.app)!
 
 
