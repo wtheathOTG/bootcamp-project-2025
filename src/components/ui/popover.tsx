@@ -14,7 +14,11 @@ function Popover({
 function PopoverTrigger({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
-  return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
+  return <PopoverPrimitive.Trigger
+      data-slot="popover-trigger"
+      className="underline decoration-1 decoration-dashed underline-offset-2 decoration-[color:currentColor]/40"
+      {...props}
+  />
 }
 
 function PopoverContent({

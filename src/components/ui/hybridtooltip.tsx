@@ -1,3 +1,5 @@
+"use client"
+
 import { type PropsWithChildren, createContext, useContext, useEffect, useState } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContent } from './tooltip';
 import { Popover, PopoverTrigger, PopoverContent } from './popover';
