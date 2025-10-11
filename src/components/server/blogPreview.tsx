@@ -2,14 +2,14 @@ import React from 'react';
 import Link from "next/link";
 import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
-import {Blog} from "@/blog";
+import {Blog} from "@/blogData";
 
 function BlogPreview({blog}: {blog: Blog}) {
     return (
         <Link href={`/blog/${blog.slug}`}>
             <Card className="group bg-transparent hover:bg-muted transition-all duration-200 ease-in-out">
                 <CardHeader>
-                    <CardTitle className="text-xl">{blog.title}</CardTitle>
+                    <CardTitle>{blog.title}</CardTitle>
                     <CardDescription>{blog.author}</CardDescription>
                     <CardAction
                         className="text-muted-foreground group-hover:text-foreground transition-all duration-200 ease-in-out"
@@ -17,7 +17,7 @@ function BlogPreview({blog}: {blog: Blog}) {
                         {blog.date}
                     </CardAction>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-sm">
                     <p>{blog.description}</p>
                 </CardContent>
                 {(blog.tags && blog.tags.length > 0) &&

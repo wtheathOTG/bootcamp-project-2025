@@ -6,7 +6,7 @@
 All the criteria for Milestone 1 is met with some asterisks:
 
 *Next.js is installed, so there is an imitation of js DOM manipulation in the
-blog.ts file - it is marked as deprecated.
+blogData.ts file - it is marked as deprecated.
 
 *Instead of a blog.html there is a /blog/page.tsx.
 

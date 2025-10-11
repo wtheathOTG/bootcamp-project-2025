@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogPreview from "@/components/server/blogPreview";
-import {blogs} from "@/blog";
+import {blogs} from "@/blogData";
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {

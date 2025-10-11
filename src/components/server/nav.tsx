@@ -5,6 +5,8 @@ import GithubIcon from "@/components/icons/githubIcon";
 import InstagramIcon from "@/components/icons/instagramicon";
 import Link from 'next/link'
 import DarkModeToggle from "@/components/client/darkmodetoggle";
+import {FileUser} from "lucide-react";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
 
 function Nav({ className }: {className?: string}) {
     return (
@@ -31,7 +33,7 @@ function Nav({ className }: {className?: string}) {
                     <Link
                         className="hover:translate-x-2 hover:text-primary active:translate-x-2 active:text-primary
                             transition-all duration-200 ease-in-out"
-                        href="/"
+                        href="/projects"
                     >
                         <p className="nav-links">Projects</p>
                     </Link>
@@ -66,6 +68,16 @@ function Nav({ className }: {className?: string}) {
                             <InstagramIcon className="size-6 fill-muted-foreground" />
                         </a>
                     </Button>
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <Button variant="grow" size="icon" asChild>
+                                <a target="_blank" href="/william-heath-2025-resume.pdf">
+                                    <FileUser className="size-6 stroke-muted-foreground stroke-2" />
+                                </a>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Resume</TooltipContent>
+                    </Tooltip>
                 </div>
             </div>
         </div>

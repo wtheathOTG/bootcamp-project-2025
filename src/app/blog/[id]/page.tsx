@@ -1,5 +1,5 @@
 import React from 'react';
-import {blogs} from "@/blog";
+import {blogs} from "@/blogData";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";

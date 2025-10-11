@@ -27,13 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`font-mono antialiased`}
       >
           <div className="flex justify-center min-h-screen">
               <div
                   id="site-border"
-                  className="w-full max-w-296 px-8 pt-16 pb-16 space-y-16 md:pt-32 md:grid md:grid-cols-2 md:space-y-0 lg:px-16
-                  border-x-2 border-dashed border-transparent text-white"
+                  className="w-full max-w-320 px-8 pt-16 pb-16 space-y-16 md:pt-32 md:grid md:grid-cols-2 md:space-y-0 lg:px-16
+                  border-x-2 border-dashed border-transparent"
               >
                   <Nav />
                   <div id="page-content">
