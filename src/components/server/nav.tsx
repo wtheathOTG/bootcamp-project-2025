@@ -6,7 +6,7 @@ import InstagramIcon from "@/components/icons/instagramicon";
 import Link from 'next/link'
 import DarkModeToggle from "@/components/client/darkmodetoggle";
 import {FileUser} from "lucide-react";
-import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 
 function Nav({ className }: {className?: string}) {
     return (
@@ -53,22 +53,37 @@ function Nav({ className }: {className?: string}) {
                     </Link>
                 </div>
                 <div className="nav-links flex justify-start gap-x-4">
-                    <Button variant="grow" size="icon" asChild>
-                        <a target="_blank" href="https://www.linkedin.com/in/william-heath06">
-                            <LinkedInIcon className="size-6 fill-muted-foreground"/>
-                        </a>
-                    </Button>
-                    <Button variant="grow" size="icon" asChild>
-                        <a target="_blank" href="https://www.github.com/wtheathOTG">
-                            <GithubIcon className="size-6 fill-muted-foreground"/>
-                        </a>
-                    </Button>
-                    <Button variant="grow" size="icon" asChild>
-                        <a target="_blank" href="https://www.instagram.com/will_heath06">
-                            <InstagramIcon className="size-6 fill-muted-foreground" />
-                        </a>
-                    </Button>
-                    <Tooltip>
+                    <Tooltip delayDuration={400}>
+                        <TooltipTrigger>
+                            <Button variant="grow" size="icon" asChild>
+                                <a target="_blank" href="https://www.linkedin.com/in/william-heath06">
+                                    <LinkedInIcon className="size-6 fill-muted-foreground"/>
+                                </a>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>LinkedIn</TooltipContent>
+                    </Tooltip>
+                    <Tooltip delayDuration={400}>
+                        <TooltipTrigger>
+                            <Button variant="grow" size="icon" asChild>
+                                <a target="_blank" href="https://www.github.com/wtheathOTG">
+                                    <GithubIcon className="size-6 fill-muted-foreground"/>
+                                </a>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>GitHub</TooltipContent>
+                    </Tooltip>
+                    <Tooltip delayDuration={400}>
+                        <TooltipTrigger>
+                            <Button variant="grow" size="icon" asChild>
+                                <a target="_blank" href="https://www.instagram.com/will_heath06">
+                                    <InstagramIcon className="size-6 fill-muted-foreground" />
+                                </a>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Instagram</TooltipContent>
+                    </Tooltip>
+                    <Tooltip delayDuration={400}>
                         <TooltipTrigger>
                             <Button variant="grow" size="icon" asChild>
                                 <a target="_blank" href="/william-heath-2025-resume.pdf">
