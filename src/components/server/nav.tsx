@@ -11,7 +11,7 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/compon
 function Nav({ className }: {className?: string}) {
     return (
         <div className={className}>
-            <div className="sticky md:h-[70lvh] max-h-144 top-32 text-foreground flex flex-col flex-start gap-y-8 md:justify-between">
+            <div className="sticky md:h-[70lvh] max-h-144 top-24 text-foreground flex flex-col flex-start gap-y-8 md:justify-between">
                 <div className="space-y-4">
                     <div className="nav-hero flex justify-start items-center gap-x-4">
                         <h1 id="nav-name" className="inline-block text-5xl font-bold">Will Heath</h1>
@@ -54,7 +54,7 @@ function Nav({ className }: {className?: string}) {
                 </div>
                 <div className="nav-links flex justify-start gap-x-4">
                     <Tooltip delayDuration={400}>
-                        <TooltipTrigger>
+                        <TooltipTrigger tabIndex={-1}>
                             <Button variant="grow" size="icon" asChild>
                                 <a target="_blank" href="https://www.linkedin.com/in/william-heath06">
                                     <LinkedInIcon className="size-6 fill-muted-foreground"/>
@@ -64,7 +64,7 @@ function Nav({ className }: {className?: string}) {
                         <TooltipContent>LinkedIn</TooltipContent>
                     </Tooltip>
                     <Tooltip delayDuration={400}>
-                        <TooltipTrigger>
+                        <TooltipTrigger tabIndex={-1}>
                             <Button variant="grow" size="icon" asChild>
                                 <a target="_blank" href="https://www.github.com/wtheathOTG">
                                     <GithubIcon className="size-6 fill-muted-foreground"/>
@@ -74,7 +74,7 @@ function Nav({ className }: {className?: string}) {
                         <TooltipContent>GitHub</TooltipContent>
                     </Tooltip>
                     <Tooltip delayDuration={400}>
-                        <TooltipTrigger>
+                        <TooltipTrigger tabIndex={-1}>
                             <Button variant="grow" size="icon" asChild>
                                 <a target="_blank" href="https://www.instagram.com/will_heath06">
                                     <InstagramIcon className="size-6 fill-muted-foreground" />
@@ -84,7 +84,7 @@ function Nav({ className }: {className?: string}) {
                         <TooltipContent>Instagram</TooltipContent>
                     </Tooltip>
                     <Tooltip delayDuration={400}>
-                        <TooltipTrigger>
+                        <TooltipTrigger tabIndex={-1}>
                             <Button variant="grow" size="icon" asChild>
                                 <a target="_blank" href="/william-heath-2025-resume.pdf">
                                     <FileUser className="size-6 stroke-muted-foreground stroke-2" />
