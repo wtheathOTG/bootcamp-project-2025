@@ -26,7 +26,7 @@ function PageTransitionAnimations() {
     }, { dependencies: [pathname]});
 
     return (
-        <div className=""></div>
+        <div className="fixed"></div>
     );
 }
 

@@ -86,7 +86,7 @@ function GlobalAnimations() {
     });
 
     return (
-        <div className=""></div>
+        <div className="fixed"></div>
     );
 }
 
