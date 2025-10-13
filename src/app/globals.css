@@ -9,9 +9,8 @@ body {
 
 html, body {
     height: 100%;
-    overflow: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    /*-ms-overflow-style: none;*/
 }
 
 html::-webkit-scrollbar,
@@ -20,9 +19,9 @@ body::-webkit-scrollbar {
     height: 0px;
 }
 
-.nav-hero { visibility: hidden; }
-.nav-links { visibility: hidden; }
-#page-content { visibility: hidden; }
+.nav-hero { opacity: 0; }
+.nav-links { opacity: 0; }
+#page-content { opacity: 0; }
 
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);

@@ -23,23 +23,35 @@ function GlobalAnimations() {
             delay: 0.3
         });
 
-        gsap.from(".nav-hero", {
-            x: -10,
-            autoAlpha: 0,
-            ease: "power1.out",
-            stagger: 0.1,
-            delay: 0.3,
-            immediateRender: false,
-        });
+        gsap.fromTo(".nav-hero",
+            {
+                x: -10,
+                opacity: 0,
+            },
+            {
+                x: 0,
+                opacity: 1,
+                ease: "power1.out",
+                stagger: 0.1,
+                delay: 0.3,
+                immediateRender: false,
+            }
+        );
 
-        gsap.from(".nav-links", {
-            x: -10,
-            autoAlpha: 0,
-            ease: "power1.out",
-            delay: 0.65,
-            stagger: 0.06,
-            immediateRender: false,
-        });
+        gsap.fromTo(".nav-links",
+            {
+                x: -10,
+                opacity: 0,
+            },
+            {
+                x: 0,
+                opacity: 1,
+                ease: "power1.out",
+                delay: 0.65,
+                stagger: 0.06,
+                immediateRender: false,
+            }
+        );
 
         //Nav name hover effect
         const navName = document.querySelector("#nav-name");
@@ -74,7 +86,7 @@ function GlobalAnimations() {
     });
 
     return (
-        <div className="fixed"></div>
+        <div className=""></div>
     );
 }
 

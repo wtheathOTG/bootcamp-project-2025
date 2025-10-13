@@ -9,16 +9,16 @@ function PageTransitionAnimations() {
     const pathname = usePathname();
 
     useGSAP(() => {
-        gsap.set("#page-content", { autoAlpha: 0 });
+        gsap.set("#page-content", { opacity: 0 });
 
         gsap.fromTo("#page-content",
             {
                 y: 10,
-                autoAlpha: 0,
+                opacity: 0,
             },
             {
             y: 0,
-            autoAlpha: 1,
+            opacity: 1,
             ease: "power1.out",
             delay: 0.3,
             immediateRender: false,
@@ -26,7 +26,7 @@ function PageTransitionAnimations() {
     }, { dependencies: [pathname]});
 
     return (
-        <div className="fixed"></div>
+        <div className=""></div>
     );
 }
 

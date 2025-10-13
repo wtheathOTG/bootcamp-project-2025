@@ -6,7 +6,7 @@ import InstagramIcon from "@/components/icons/instagramicon";
 import Link from 'next/link'
 import DarkModeToggle from "@/components/client/darkmodetoggle";
 import {FileUser} from "lucide-react";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
 
 function Nav({ className }: {className?: string}) {
     return (
