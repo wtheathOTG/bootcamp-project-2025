@@ -18,22 +18,22 @@ async function Page({ params }: { params: Promise<{id: string}> }) {
     const blog = blogs.find(blog => blog.slug === id);
 
     return (
-        <div className="text-foreground">
+        <div className="text-foreground space-y-8">
             <div className="flex justify-between items-start">
-                <div>
-                    <h2 className="pb-2 text-3xl capitalize">{blog?.title}</h2>
+                <div className="space-y-2">
+                    <h2 className="text-3xl capitalize">{blog?.title}</h2>
                     <p className="text-muted-foreground">{blog?.author}</p>
+                    {(blog && blog.tags && blog.tags.length > 0) &&
+                        <div className="flex justify-start gap-x-2">
+                            {blog?.tags?.map((tag, idx) => (
+                                <Badge key={idx}>{tag}</Badge>
+                            ))}
+                        </div>
+                    }
                 </div>
                 <p className="text-muted-foreground">{blog?.date}</p>
             </div>
-            {(blog && blog.tags && blog.tags.length > 0) &&
-                <div className="flex justify-start gap-x-2 pt-2">
-                    {blog?.tags?.map((tag, idx) => (
-                        <Badge key={idx}>{tag}</Badge>
-                    ))}
-                </div>
-            }
-            <div className="py-8">
+            <div>
                 <AspectRatio ratio={16 / 9} className="rounded-md">
                     <Image
                         src={`${blog?.image}`}
@@ -43,7 +43,7 @@ async function Page({ params }: { params: Promise<{id: string}> }) {
                     />
                 </AspectRatio>
             </div>
-            <p className="text-lg">{blog?.description}</p>
+            <p>{blog?.description}</p>
         </div>
     );
 }

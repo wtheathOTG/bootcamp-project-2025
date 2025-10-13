@@ -10,7 +10,7 @@ function BlogPreview({blog}: {blog: Blog}) {
             <Card className="group bg-transparent hover:bg-muted transition-all duration-200 ease-in-out">
                 <CardHeader>
                     <CardTitle>{blog.title}</CardTitle>
-                    <CardDescription>{blog.author}</CardDescription>
+                    <CardDescription className="text-muted-foreground">{blog.author}</CardDescription>
                     <CardAction
                         className="text-muted-foreground group-hover:text-foreground transition-all duration-200 ease-in-out"
                     >

@@ -31,4 +31,34 @@ export const blogs: Blog[] = [
         imageAlt: "Image of a funky cat",
         slug: "b2",
     },
+    {
+        title: "Blog Post 2",
+        author: "Joe Smith",
+        date: "Sep 23, 2025",
+        description: "This is a short description of the article. I am going to keep " +
+            "writing so that this paragraph fills up. Here is one last sentence to fill up a little more space...",
+        image: "/pictures/cat.png",
+        imageAlt: "Image of a funky cat",
+        slug: "b2",
+    },
+    {
+        title: "Blog Post 2",
+        author: "Joe Smith",
+        date: "Sep 23, 2025",
+        description: "This is a short description of the article. I am going to keep " +
+            "writing so that this paragraph fills up. Here is one last sentence to fill up a little more space...",
+        image: "/pictures/cat.png",
+        imageAlt: "Image of a funky cat",
+        slug: "b2",
+    },
+    {
+        title: "Blog Post 2",
+        author: "Joe Smith",
+        date: "Sep 23, 2025",
+        description: "This is a short description of the article. I am going to keep " +
+            "writing so that this paragraph fills up. Here is one last sentence to fill up a little more space...",
+        image: "/pictures/cat.png",
+        imageAlt: "Image of a funky cat",
+        slug: "b2",
+    },
 ];
