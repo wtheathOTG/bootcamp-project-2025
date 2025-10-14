@@ -14,14 +14,14 @@ export const projects: Project[] = [
         title: "Hunt The Wumpus",
         date: "Feb 2025 – May 2025",
         description: [
-            <p>
+            <p key="1-1">
                 This dungeon-crawler built for the command-line interface was the winner of the 2025 Microsoft Hunt The Wumpus
                 competition Best Implementation and Crowd Favorite Award.
             </p>,
-            <p>
+            <p key="1-2">
                 It was created from scratch in Java, following specifications and taking creative liberties with its retro presentation.
             </p>,
-            <p>
+            <p key="1-3">
                 The project was built with scalability in mind, implementing the strategy pattern for prototyping multiple solutions
                 and creating an{" "}
                 <TouchProvider><HybridTooltip>
@@ -38,7 +38,7 @@ export const projects: Project[] = [
         title: "FTC Into The Deep Robot",
         date: "Sep 2023 – June 2025",
         description: [
-            <p>
+            <p key="2-1">
                 As Autonomous Lead for robotics{" "}
                 <TouchProvider><HybridTooltip>
                     <HybridTooltipTrigger>FTC</HybridTooltipTrigger>
@@ -52,7 +52,7 @@ export const projects: Project[] = [
                 {" "}controller for accurate transportation.
                 This feedback loop used sensor data to regulate motor and servo power.
             </p>,
-            <p>
+            <p key="2-2">
                 Combined with a system for queueing groups of actions, components such as the drive base, lift, and claw could
                 function fast and in tandem.
             </p>,
@@ -64,7 +64,7 @@ export const projects: Project[] = [
         title: "Game Development",
         date: "Sep 2020 – Present",
         description: [
-            <p>
+            <p key="3-1">
                 Through game development I have had experience with large{" "}
                 <TouchProvider><HybridTooltip>
                     <HybridTooltipTrigger>OOP</HybridTooltipTrigger>
@@ -73,7 +73,7 @@ export const projects: Project[] = [
                 {" "}projects, using the singleton, observer, flyweight,
                 factory, and strategy design patterns often when creating performant and maintainable code.
             </p>,
-            <p>
+            <p key="3-2">
                 One project leveraged {""}
                 <TouchProvider><HybridTooltip>
                     <HybridTooltipTrigger>TCP</HybridTooltipTrigger>
@@ -94,7 +94,7 @@ export const projects: Project[] = [
                     </HybridTooltipContent>
                 </HybridTooltip></TouchProvider>
             </p>,
-            <p>
+            <p key="3-3">
                 I have developed predominantly in Unity with some experience in Unreal Engine 4 and Game Maker Studio 2.
             </p>,
         ],
