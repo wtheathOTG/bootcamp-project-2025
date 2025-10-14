@@ -1,1 +1,5 @@
 /node_modules
+.github
+.idea
+.next
+dist
