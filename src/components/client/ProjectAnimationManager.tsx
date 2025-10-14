@@ -4,11 +4,12 @@ import React from 'react';
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {SplitText} from "gsap/SplitText";
 import {Project} from "@/projectData";
 
 function ProjectAnimationManager({projects}: {projects: Project[]}) {
     useGSAP(() => {
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger, SplitText);
 
         const pageContent = document.getElementById("page-content")!;
         const scrollArea = document.getElementById("project-scroll-area")!;
@@ -35,6 +36,73 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
                 y: `${showIndex * scrollbar.offsetHeight / 3}`,
                 duration: 1,
                 ease: "Power1.inOut,"
+            });
+
+            SplitText.create(title, {
+                type: "lines",
+                autoSplit: true,
+                mask: "lines",
+                onSplit: (split) => {
+                    const { lines } = split;
+                    gsap.to(lines, {
+                        duration: 0.6,
+                        yPercent: -100,
+                        opacity: 0,
+                        ease: "expo.in",
+                        onComplete: () => {
+                            gsap.fromTo(
+                                lines,
+                                { yPercent: 100, opacity: 0 },
+                                { duration: 0.6, yPercent: 0, opacity: 1, ease: "expo.out" }
+                            );
+                        }
+                    });
+                }
+            });
+
+            SplitText.create(date, {
+                type: "lines",
+                autoSplit: true,
+                mask: "lines",
+                onSplit: (split) => {
+                    const { lines } = split;
+                    gsap.to(lines, {
+                        duration: 0.6,
+                        xPercent: 100,
+                        opacity: 0,
+                        ease: "expo.in",
+                        onComplete: () => {
+                            gsap.fromTo(
+                                lines,
+                                { xPercent: -100, opacity: 0 },
+                                { duration: 0.6, xPercent: 0, opacity: 1, ease: "expo.out" }
+                            );
+                        }
+                    });
+                }
+            });
+
+            SplitText.create(description, {
+                type: "lines",
+                autoSplit: true,
+                mask: "lines",
+                onSplit: (split) => {
+                    const { lines } = split;
+                    gsap.to(lines, {
+                        duration: 0.6,
+                        xPercent: -100,
+                        opacity: 0,
+                        stagger: 0.0165,
+                        ease: "expo.in",
+                        onComplete: () => {
+                            gsap.fromTo(
+                                lines,
+                                { xPercent: 100, opacity: 0 },
+                                { duration: 0.6, xPercent: 0, opacity: 1, stagger: 0.0165, ease: "expo.out" }
+                            );
+                        }
+                    });
+                }
             });
         }
 
