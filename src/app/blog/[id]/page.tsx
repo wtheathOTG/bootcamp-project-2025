@@ -18,7 +18,7 @@ async function Page({ params }: { params: Promise<{id: string}> }) {
     const blog = blogs.find(blog => blog.slug === id);
 
     return (
-        <div className="text-foreground space-y-8">
+        <div className="pb-16 text-foreground space-y-8">
             <div className="flex justify-between items-start">
                 <div className="space-y-2">
                     <h2 className="text-3xl capitalize">{blog?.title}</h2>
