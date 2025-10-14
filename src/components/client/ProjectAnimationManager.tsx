@@ -24,19 +24,13 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
 
         const projectScrollDistance = 400;
 
-        scrollArea.style.height = `${container.offsetHeight + projects.length * projectScrollDistance}px`;
+        scrollArea.style.height = `${container.offsetHeight + (projects.length) * projectScrollDistance}px`;
 
         const switchProject = (showIndex: number) => {
             if (showIndex >= projects.length) {
                 console.log("Project show index greater than project[].length");
                 return;
             }
-
-            gsap.to(thumb, {
-                y: `${showIndex * scrollbar.offsetHeight / 3}`,
-                duration: 1,
-                ease: "Power1.inOut,"
-            });
 
             SplitText.create(title, {
                 type: "lines",
@@ -108,14 +102,26 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
 
         const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
         projects.forEach((proj: Project, idx: number) => {
-            if (idx !== 0) {
+            if (idx !== 0 ) {
                 ScrollTrigger.create({
                     trigger: pageContent,
-                    start: `top+=${(idx) * projectScrollDistance} top+=${6 * rem}`,
-                    end: `top+=${(idx + 1) * projectScrollDistance} top+=${6 * rem}`,
+                    start: `top+=${(idx - 0.5) * projectScrollDistance} top+=${6 * rem}`,
+                    end: `top+=${(idx + 0.5) * projectScrollDistance} top+=${6 * rem}`,
                     onEnter: () => {switchProject(idx)},
                     onLeaveBack: () => {switchProject(idx - 1)},
+                    //markers: true,
                 });
+            }
+        });
+
+        gsap.to(thumb, {
+            y: `${scrollbar.offsetHeight * 2 / 3}`,
+            scrollTrigger: {
+                trigger: pageContent,
+                start: `top top+=${6 * rem}`,
+                end: `bottom bottom`,
+                scrub: true,
+                //markers: true,
             }
         });
     });
