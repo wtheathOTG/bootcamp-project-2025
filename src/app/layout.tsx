@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Will Heath Portfolio",
+  title: "Will Heath Personal Website",
+  description: "A personal website for Will Heath.",
 };
 
 export default function RootLayout({
