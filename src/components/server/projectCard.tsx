@@ -8,14 +8,18 @@ export function ProjectCard({proj}: {proj: Project}) {
         <div className="grid h-full min-h-0 grid-rows-[auto_auto_1fr] gap-y-8">
             <div className="flex justify-between items-start">
                 <div className="space-y-2">
-                    <h2 id="project-title" className="text-2xl text-foreground">{proj.title}</h2>
+                    <div className="overflow-hidden">
+                        <h2 id="project-title" className="text-2xl text-foreground font-medium">{proj.title}</h2>
+                    </div>
                     <div id="project-tags" className="space-x-2">
                         {proj.tags.map((tag, idx) => (
                             <Badge key={idx}>{tag}</Badge>
                         ))}
                     </div>
                 </div>
-                <p id="project-date" className="text-muted-foreground">{proj.date}</p>
+                <div className="overflow-hidden">
+                    <p id="project-date" className="text-muted-foreground">{proj.date}</p>
+                </div>
             </div>
             <div id="project-description" className="space-y-2 text-sm">
                 {proj.description.map((paragraph, idx) => (

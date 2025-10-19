@@ -21,7 +21,7 @@ async function Page({ params }: { params: Promise<{id: string}> }) {
         <div className="pb-16 text-foreground space-y-8">
             <div className="flex justify-between items-start">
                 <div className="space-y-2">
-                    <h2 className="text-3xl capitalize">{blog?.title}</h2>
+                    <h2 className="text-3xl capitalize font-medium">{blog?.title}</h2>
                     <p className="text-muted-foreground">{blog?.author}</p>
                     {(blog && blog.tags && blog.tags.length > 0) &&
                         <div className="flex justify-start gap-x-2">

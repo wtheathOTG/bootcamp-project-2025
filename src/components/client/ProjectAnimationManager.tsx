@@ -32,47 +32,33 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
                 return;
             }
 
-            SplitText.create(title, {
-                type: "lines",
-                autoSplit: true,
-                mask: "lines",
-                onSplit: (split) => {
-                    const { lines } = split;
-                    gsap.to(lines, {
-                        duration: 0.6,
-                        yPercent: -100,
-                        opacity: 0,
-                        ease: "expo.in",
-                        onComplete: () => {
-                            gsap.fromTo(
-                                lines,
-                                { yPercent: 100, opacity: 0 },
-                                { duration: 0.6, yPercent: 0, opacity: 1, ease: "expo.out" }
-                            );
-                        }
-                    });
+            gsap.to(title, {
+                duration: 0.6,
+                yPercent: -100,
+                opacity: 0,
+                ease: "expo.in",
+                onComplete: () => {
+                    title.textContent = projects[showIndex].title;
+                    gsap.fromTo(
+                        title,
+                        { yPercent: 100, opacity: 0 },
+                        { duration: 0.6, yPercent: 0, opacity: 1, ease: "expo.out" }
+                    );
                 }
             });
 
-            SplitText.create(date, {
-                type: "lines",
-                autoSplit: true,
-                mask: "lines",
-                onSplit: (split) => {
-                    const { lines } = split;
-                    gsap.to(lines, {
-                        duration: 0.6,
-                        xPercent: 100,
-                        opacity: 0,
-                        ease: "expo.in",
-                        onComplete: () => {
-                            gsap.fromTo(
-                                lines,
-                                { xPercent: -100, opacity: 0 },
-                                { duration: 0.6, xPercent: 0, opacity: 1, ease: "expo.out" }
-                            );
-                        }
-                    });
+            gsap.to(date, {
+                duration: 0.6,
+                xPercent: 100,
+                opacity: 0,
+                ease: "expo.in",
+                onComplete: () => {
+                    date.textContent = projects[showIndex].date;
+                    gsap.fromTo(
+                        date,
+                        { xPercent: -100, opacity: 0 },
+                        { duration: 0.6, xPercent: 0, opacity: 1, ease: "expo.out" }
+                    );
                 }
             });
 
@@ -84,15 +70,15 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
                     const { lines } = split;
                     gsap.to(lines, {
                         duration: 0.6,
-                        xPercent: -100,
+                        yPercent: -100,
                         opacity: 0,
                         stagger: 0.0165,
                         ease: "expo.in",
                         onComplete: () => {
                             gsap.fromTo(
                                 lines,
-                                { xPercent: 100, opacity: 0 },
-                                { duration: 0.6, xPercent: 0, opacity: 1, stagger: 0.0165, ease: "expo.out" }
+                                { yPercent: 100, opacity: 0 },
+                                { duration: 0.6, yPercent: 0, opacity: 1, stagger: 0.0165, ease: "expo.out" }
                             );
                         }
                     });
@@ -105,8 +91,8 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
             if (idx !== 0 ) {
                 ScrollTrigger.create({
                     trigger: pageContent,
-                    start: `top+=${(idx - 0.5) * projectScrollDistance} top+=${6 * rem}`,
-                    end: `top+=${(idx + 0.5) * projectScrollDistance} top+=${6 * rem}`,
+                    start: `top+=${(idx - 0.6) * projectScrollDistance} top+=${6 * rem}`,
+                    end: `top+=${(idx + 0.4) * projectScrollDistance} top+=${6 * rem}`,
                     onEnter: () => {switchProject(idx)},
                     onLeaveBack: () => {switchProject(idx - 1)},
                     //markers: true,
