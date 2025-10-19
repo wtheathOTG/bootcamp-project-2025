@@ -18,11 +18,12 @@ function About() {
                 </p>
             </div>
             <div className="pb-16 pt-8">
-                <AspectRatio ratio={2/1} className="rounded-lg border border-border shadow-md overflow-hidden">
+                <AspectRatio ratio={2/1} className="relative rounded-lg border border-border shadow-md overflow-hidden">
                     <Image
                         src="/pictures/headshot.JPG"
                         alt="Photo of Will Heath"
                         fill
+                        sizes="50vw"
                         className="relative h-full w-full object-cover bg-card saturate-95 object-[62%_50%]"
                     />
                 </AspectRatio>

@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactForm from "@/components/server/contactForm";
+import ContactForm from "@/components/client/contactForm";
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {
