@@ -12,7 +12,7 @@ export function EmailTemplate(props: EmailTemplateProps) {
             <p>Message:</p>
             <p>{props.message}</p>
             <br/>
-            <p><span>{props.name}'s email: </span>{props.email}</p>
+            <p><span>{props.name + "'s email: "}</span>{props.email}</p>
         </div>
     );
 }
