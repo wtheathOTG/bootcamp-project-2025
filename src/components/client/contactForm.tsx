@@ -36,9 +36,10 @@ function ContactForm() {
             if (!res.ok) throw new Error((await res.json()).error ?? "Failed to send");
             setStatus("sent");
             form.reset();
-        } catch (err: any) {
+        } catch (err) {
+            const error = err instanceof Error ? err : new Error("Unknown error");
             setStatus("error");
-            setError(err.message ?? "Something went wrong");
+            setError(error.message ?? "Something went wrong");
         }
     };
 

@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         const { data, error } = await resend.emails.send({
             from: process.env.CONTACT_FROM!,
             to: process.env.CONTACT_TO!,
-            subject: `From: ${name}`,
+            subject: "From: " + name,
             react: EmailTemplate({name, email, message}),
         });
 
@@ -25,7 +25,8 @@ export async function POST(req: Request) {
         }
 
         return NextResponse.json({ok: true});
-    } catch (err: any) {
-        return NextResponse.json({error: err.message ?? "Failed to send"}, {status: 500});
+    } catch (err) {
+        const error = err instanceof Error ? err : new Error("Unknown error");
+        return NextResponse.json({error: error.message ?? "Failed to send"}, {status: 500});
     }
 }
