@@ -6,7 +6,7 @@ import {Button} from "@/components/ui/button";
 
 function ContactForm() {
     return (
-        <FieldGroup>
+        <FieldGroup className="pb-16">
             <FieldSet>
                 <FieldLegend variant="title">Contact Me</FieldLegend>
                 <FieldGroup>

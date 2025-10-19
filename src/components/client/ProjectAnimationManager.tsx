@@ -22,7 +22,7 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
         const scrollbar = document.getElementById("project-scrollbar")!;
         const thumb = document.getElementById("project-scrollbar-thumb")!;
 
-        const projectScrollDistance = 400;
+        const projectScrollDistance = 600;
 
         scrollArea.style.height = `${container.offsetHeight + (projects.length) * projectScrollDistance}px`;
 
@@ -59,29 +59,6 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
                         { xPercent: -100, opacity: 0 },
                         { duration: 0.6, xPercent: 0, opacity: 1, ease: "expo.out" }
                     );
-                }
-            });
-
-            SplitText.create(description, {
-                type: "lines",
-                autoSplit: true,
-                mask: "lines",
-                onSplit: (split) => {
-                    const { lines } = split;
-                    gsap.to(lines, {
-                        duration: 0.6,
-                        yPercent: -100,
-                        opacity: 0,
-                        stagger: 0.0165,
-                        ease: "expo.in",
-                        onComplete: () => {
-                            gsap.fromTo(
-                                lines,
-                                { yPercent: 100, opacity: 0 },
-                                { duration: 0.6, yPercent: 0, opacity: 1, stagger: 0.0165, ease: "expo.out" }
-                            );
-                        }
-                    });
                 }
             });
         }

@@ -34,12 +34,12 @@ async function Page({ params }: { params: Promise<{id: string}> }) {
                 <p className="text-muted-foreground">{blog?.date}</p>
             </div>
             <div>
-                <AspectRatio ratio={16 / 9} className="rounded-md">
+                <AspectRatio ratio={16 / 9} className="rounded-md border border-border shadow-md overflow-hidden">
                     <Image
                         src={`${blog?.image}`}
                         alt={`${blog?.imageAlt}`}
                         fill
-                        className="h-full w-full rounded-md object-cover bg-card"
+                        className="h-full w-full object-cover bg-card"
                     />
                 </AspectRatio>
             </div>

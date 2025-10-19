@@ -1,6 +1,8 @@
 import About from "@/components/server/about";
 import type {Metadata} from "next";
 import React from "react";
+import {AspectRatio} from "@/components/ui/aspect-ratio";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "About",
@@ -8,9 +10,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-      <div>
-          <h2 className="text-2xl text-foreground pb-4 font-medium">About</h2>
-          <About />
-      </div>
+      <About />
   );
 }
