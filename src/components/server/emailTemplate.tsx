@@ -9,10 +9,15 @@ interface EmailTemplateProps {
 export function EmailTemplate(props: EmailTemplateProps) {
     return (
         <div>
-            <p>Message:</p>
+            <p><strong>Message:</strong></p>
             <p>{props.message}</p>
-            <br/>
-            <p><span>{props.name + "'s email: "}</span>{props.email}</p>
+            <p>
+                <strong>
+                    <u>{props.name}</u>
+                    {"'s email:"}
+                </strong>
+            </p>
+            <p>{props.email}</p>
         </div>
     );
 }
