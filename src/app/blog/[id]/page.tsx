@@ -3,6 +3,7 @@ import {blogs} from "@/blogData";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
+import {notFound} from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{id: string}> }) {
     const {id} = await params;
@@ -13,9 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{id: string
     };
 }
 
+export async function generateStaticParams() {
+    return blogs.map(blog => ({id: blog.slug}));
+}
+
 async function Page({ params }: { params: Promise<{id: string}> }) {
     const {id} = await params;
     const blog = blogs.find(blog => blog.slug === id);
+    if (!blog) notFound();
 
     return (
         <div className="pb-16 text-foreground space-y-8">

@@ -26,7 +26,6 @@ function ContactForm() {
         };
 
         try {
-            console.log(JSON.stringify(data));
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
