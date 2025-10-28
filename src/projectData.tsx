@@ -98,7 +98,7 @@ export const projects: Project[] = [
                 I have developed predominantly in Unity with some experience in Unreal Engine 4 and Game Maker Studio 2.
             </p>,
         ],
-        tags: ["C#", "Unity", ".Net", "PostgreSQL", "SQLite"],
+        tags: ["C#", "Unity", ".Net", "PostgreSQL"],
         src: "/videos/GameDevClipMontage.webm",
     },
 ];

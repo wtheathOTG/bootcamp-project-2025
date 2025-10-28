@@ -11,7 +11,7 @@ function Page() {
 
     return (
         <div id="project-scroll-area" className="h-full">
-            <div id="project-container" className="sticky top-24 h-full max-h-[calc(100vh-8rem)] grid grid-cols-[0.25rem_1fr] gap-x-8">
+            <div id="project-container" className="sticky top-16 md:top-24 h-full max-h-[calc(100vh-8rem)] grid grid-cols-[0.25rem_1fr] gap-x-8">
                 <ProjectScrollBar projects={projects} />
                 <div className="w-full">
                     {projects.map((project, index) => (
