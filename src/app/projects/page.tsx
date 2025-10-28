@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {projects} from "@/projectData";
-import {ProjectCard} from "@/components/server/projectCard";
 import ProjectScrollBar from "@/components/client/ProjectScrollBar";
 import ProjectAnimationManager from "@/components/client/ProjectAnimationManager";
 import ProjectCardNew from "@/components/server/projectcardnew";
