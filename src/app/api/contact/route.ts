@@ -2,6 +2,9 @@ import {Resend} from "resend";
 import {NextResponse} from "next/server";
 import {EmailTemplate} from "@/components/server/emailTemplate";
 
+/**
+ * @deprecated Replaced with Server Action
+ */
 export async function POST(req: Request) {
     const from = process.env.CONTACT_FROM;
     if (!from) return NextResponse.json({ error: "Server misconfig: CONTACT_FROM is missing" }, { status: 500 });
