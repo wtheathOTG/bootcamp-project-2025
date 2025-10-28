@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, {useState} from 'react';
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
@@ -14,52 +14,49 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
         const pageContent = document.getElementById("page-content")!;
         const scrollArea = document.getElementById("project-scroll-area")!;
         const container = document.getElementById("project-container")!;
-        const title = document.getElementById("project-title")!;
-        const tags = document.getElementById("project-tags")!;
-        const date = document.getElementById("project-date")!;
-        const description = document.getElementById("project-description")!;
-        const image = document.getElementById("project-image")!;
         const scrollbar = document.getElementById("project-scrollbar")!;
         const thumb = document.getElementById("project-scrollbar-thumb")!;
 
-        const projectScrollDistance = 600;
+        const cards = document.querySelectorAll(".project-card");
 
+        const projectScrollDistance = 600;
         scrollArea.style.height = `${container.offsetHeight + (projects.length) * projectScrollDistance}px`;
 
-        const switchProject = (showIndex: number) => {
+
+        cards.forEach((card, i) => {
+            if (i != 0) {
+                gsap.set(card, {pointerEvents: "none"})
+                gsap.set(card, {opacity: 0, y: 20})
+            }
+        })
+
+        const switchProject = (showIndex: number, direction: 1 | -1) => {
             if (showIndex >= projects.length) {
                 console.log("Project show index greater than project[].length");
                 return;
             }
 
-            gsap.to(title, {
-                duration: 0.6,
-                yPercent: -100,
-                opacity: 0,
-                ease: "expo.in",
-                onComplete: () => {
-                    title.textContent = projects[showIndex].title;
-                    gsap.fromTo(
-                        title,
-                        { yPercent: 100, opacity: 0 },
-                        { duration: 0.6, yPercent: 0, opacity: 1, ease: "expo.out" }
-                    );
+            cards.forEach((card, i) => {
+                if (i != showIndex) {
+                    gsap.set(card, {pointerEvents: "none"})
+                    gsap.to(card, {
+                        opacity: 0,
+                        y: `${-70 * direction}`,
+                        duration: 0.65,
+                        ease: "power2.in"
+                    });
                 }
             });
-
-            gsap.to(date, {
-                duration: 0.6,
-                xPercent: 100,
-                opacity: 0,
-                ease: "expo.in",
-                onComplete: () => {
-                    date.textContent = projects[showIndex].date;
-                    gsap.fromTo(
-                        date,
-                        { xPercent: -100, opacity: 0 },
-                        { duration: 0.6, xPercent: 0, opacity: 1, ease: "expo.out" }
-                    );
-                }
+            gsap.set(cards[showIndex], {pointerEvents: "auto"})
+            gsap.fromTo(cards[showIndex], {
+                    opacity: 0,
+                    y: `${70 * direction}`,
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.65,
+                    delay: 0.25,
+                    ease: "power2.inOut"
             });
         }
 
@@ -70,8 +67,8 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
                     trigger: pageContent,
                     start: `top+=${(idx - 0.6) * projectScrollDistance} top+=${6 * rem}`,
                     end: `top+=${(idx + 0.4) * projectScrollDistance} top+=${6 * rem}`,
-                    onEnter: () => {switchProject(idx)},
-                    onLeaveBack: () => {switchProject(idx - 1)},
+                    onEnter: () => {switchProject(idx, 1)},
+                    onLeaveBack: () => {switchProject(idx - 1, -1)},
                     //markers: true,
                 });
             }

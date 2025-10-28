@@ -24,7 +24,7 @@ function About() {
                         alt="Photo of Will Heath"
                         fill
                         sizes="50vw"
-                        className="relative h-full w-full object-cover bg-card saturate-95 object-[62%_50%]"
+                        className="relative h-full w-full object-cover bg-card object-[62%_50%]"
                     />
                 </AspectRatio>
             </div>

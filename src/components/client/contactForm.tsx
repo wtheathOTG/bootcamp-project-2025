@@ -1,55 +1,22 @@
 "use client";
 
-import React, {useRef, useState} from 'react';
+import React, {useActionState, useRef, useState} from 'react';
 import {Field, FieldGroup, FieldLabel, FieldLegend, FieldSet} from "@/components/ui/field";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
+import {sendContact} from "@/app/actions/sendcontact";
+
+const initialState = { status: 'idle' as const, error: undefined as string | undefined };
 
 function ContactForm() {
     const formRef = useRef<HTMLFormElement>(null);
+    const [state, formAction, isPending] = useActionState(sendContact, initialState);
 
-    const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-    const [error, setError] = useState<string | null>(null);
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setStatus("sending");
-        setError(null);
-
-        const form = e.currentTarget;
-        const  data = Object.fromEntries(new FormData(form).entries()) as {
-            name: string;
-            email: string;
-            message: string;
-            company?: string; //honeypot
-        };
-
-        try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
-
-            if (!res.ok) throw new Error((await res.json()).error ?? "Failed to send");
-            setStatus("sent");
-            form.reset();
-        } catch (err) {
-            const error = err instanceof Error ? err : new Error("Unknown error");
-            setStatus("error");
-            setError(error.message ?? "Something went wrong");
-        }
-    };
-
-    const handleClear = () => {
-        formRef.current?.reset();
-        setStatus("idle");
-        setError(null);
-    };
+    const handleClear = () => formRef.current?.reset();
 
     return (
-        <form ref={formRef} onSubmit={handleSubmit}>
+        <form ref={formRef} action={formAction}>
             <FieldGroup className="pb-16">
                 <FieldSet>
                     <FieldLegend variant="title">Contact Me</FieldLegend>
@@ -87,21 +54,21 @@ function ContactForm() {
                     </FieldGroup>
                 </FieldSet>
                 <Field orientation="horizontal">
-                    <Button type="submit" disabled={status === "sending"}>
-                        {status === "sending" ? "Sending..." : "Submit"}
+                    <Button type="submit" disabled={isPending}>
+                        {isPending ? "Sending..." : "Submit"}
                     </Button>
                     <Button
                         variant="outline"
                         type="button"
-                        disabled={status === "sending"}
+                        disabled={isPending}
                         onClick={handleClear}
                     >
                         Clear
                     </Button>
                 </Field>
 
-                {status === "error" && <p className="text-sm">Error: {error}</p>}
-                {status === "sent" && <p className="text-sm">Thanks! Your message has been sent.</p>}
+                {state.status === "error" && <p className="text-sm">Error: {state.error}</p>}
+                {state.status === "sent" && <p className="text-sm">Thanks! Your message has been sent.</p>}
             </FieldGroup>
         </form>
     );

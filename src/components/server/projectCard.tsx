@@ -9,26 +9,25 @@ export function ProjectCard({proj}: {proj: Project}) {
             <div className="flex justify-between items-start">
                 <div className="space-y-2">
                     <div className="overflow-hidden">
-                        <h2 id="project-title" className="text-2xl text-foreground font-medium">{proj.title}</h2>
+                        <h2 className="text-2xl text-foreground font-medium">{proj.title}</h2>
                     </div>
-                    <div id="project-tags" className="space-x-2">
+                    <div className="space-x-2">
                         {proj.tags.map((tag, idx) => (
                             <Badge key={idx}>{tag}</Badge>
                         ))}
                     </div>
                 </div>
                 <div className="overflow-hidden">
-                    <p id="project-date" className="text-muted-foreground">{proj.date}</p>
+                    <p className="text-muted-foreground">{proj.date}</p>
                 </div>
             </div>
-            <div id="project-description" className="space-y-2 text-sm">
+            <div className="space-y-2 text-sm">
                 {proj.description.map((paragraph, idx) => (
                     <React.Fragment key={idx}>{paragraph}</React.Fragment>
                 ))}
             </div>
             <div className="min-h-0 justify-self-center">
                 <div
-                    id="project-image"
                     className="relative h-full aspect-[4/3] w-auto max-w-full rounded-md bg-muted mx-auto overflow-hidden"
                 >
                     <ProjectGraphic src="/videos/RoboticsCroppedClip.webm" isPhoto={false} />
