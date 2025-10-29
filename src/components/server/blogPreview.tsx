@@ -3,8 +3,9 @@ import Link from "next/link";
 import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
 import {Blog} from "@/blogData";
+import {BlogDocument} from "@/database/blogSchema";
 
-function BlogPreview({blog}: {blog: Blog}) {
+function BlogPreview({blog}: {blog: BlogDocument}) {
     return (
         <Link href={`/blog/${blog.slug}`}>
             <Card className="group bg-transparent hover:bg-muted transition-all duration-200 ease-in-out">
@@ -14,7 +15,11 @@ function BlogPreview({blog}: {blog: Blog}) {
                     <CardAction
                         className="text-muted-foreground group-hover:text-foreground transition-all duration-200 ease-in-out"
                     >
-                        {blog.date}
+                        {blog.date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                        })}
                     </CardAction>
                 </CardHeader>
                 <CardContent className="text-sm">

@@ -5,6 +5,9 @@ let connection: typeof mongoose;
 
 const connectDB = async () => {
     if (!connection) {
+        if (!url) {
+            return { status: 'error', error: 'Server misconfig: missing MONGO_URI env var' };
+        }
         connection = await mongoose.connect(url);
         return connection;
     }
