@@ -11,7 +11,6 @@ export interface Blog {
     slug: string;
 }
 
-// Extend Mongoose's Document type
 export interface BlogDocument extends Blog, Document {}
 
 const blogSchema = new Schema<BlogDocument>({
@@ -25,7 +24,6 @@ const blogSchema = new Schema<BlogDocument>({
     slug: { type: String, required: true, unique: true },
 });
 
-// 👇 Properly typed model
 const Blog: Model<BlogDocument> =
     mongoose.models.blogs || mongoose.model<BlogDocument>("blogs", blogSchema);
 
