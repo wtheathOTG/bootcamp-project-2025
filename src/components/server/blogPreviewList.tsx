@@ -8,7 +8,7 @@ async function BlogPreviewList() {
     return (
         <div className="flex flex-col gap-y-8">
             {blogs ?
-                blogs.map((blog, idx) => (
+                blogs.map((blog) => (
                     <BlogPreview key={blog.slug} blog={blog} />
                 )) :
                 <p className="text-xl">No Blogs Found :(</p>

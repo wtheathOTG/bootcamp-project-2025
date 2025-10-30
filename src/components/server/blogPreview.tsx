@@ -2,7 +2,6 @@ import React from 'react';
 import Link from "next/link";
 import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
-import {Blog} from "@/blogData";
 import {BlogDocument} from "@/database/blogSchema";
 
 function BlogPreview({blog}: {blog: BlogDocument}) {

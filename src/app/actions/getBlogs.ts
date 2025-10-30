@@ -1,7 +1,7 @@
 'use server';
 
 import connectDB from "@/database/db";
-import blogSchema, {BlogDocument} from "@/database/blogSchema";
+import {BlogDocument} from "@/database/blogSchema";
 import Blog from "@/database/blogSchema";
 
 export async function getBlogBySlug(slug: string) {

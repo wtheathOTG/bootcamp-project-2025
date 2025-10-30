@@ -1,7 +1,4 @@
 import React from 'react';
-import {Badge} from "@/components/ui/badge";
-import {AspectRatio} from "@/components/ui/aspect-ratio";
-import Image from "next/image";
 import {Skeleton} from "@/components/ui/skeleton";
 
 function BlogSkeleton() {
