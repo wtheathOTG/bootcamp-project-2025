@@ -26,7 +26,7 @@ async function BlogPost({slug}: {slug: string}) {
                 <p className="text-muted-foreground">
                     {blog?.date.toLocaleDateString("en-US", {
                         year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
                     })}
                 </p>
