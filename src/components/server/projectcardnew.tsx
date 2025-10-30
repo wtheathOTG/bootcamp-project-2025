@@ -11,7 +11,7 @@ type ProjectCardNewProps = {
 
 function ProjectCardNew({ proj, className }: ProjectCardNewProps) {
     return (
-        <Card className={`absolute top-0 h-full min-h-0 bg-background py-4 gap-y-4 ${className}`}>
+        <Card className={`absolute top-0 h-full min-h-0 bg py-4 gap-y-4 ${className}`}>
             <CardHeader>
                 <CardTitle
                     className="w-full flex flex-col justify-start gap-y-1
@@ -42,7 +42,7 @@ function ProjectCardNew({ proj, className }: ProjectCardNewProps) {
             </CardContent>
             <CardFooter className="flex-grow">
                 <div
-                    className="relative h-full aspect-[4/3] w-auto max-w-full mx-auto overflow-hidden"
+                    className="relative h-full aspect-[4/3] w-auto max-w-full mx-auto"
                 >
                     <ProjectGraphic src={proj.src} isPhoto={false} />
                 </div>
