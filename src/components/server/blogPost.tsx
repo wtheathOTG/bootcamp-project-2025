@@ -3,7 +3,7 @@ import {Badge} from "@/components/ui/badge";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import {notFound} from "next/navigation";
-import {getBlogBySlug} from "@/app/actions/getBlog";
+import {getBlogBySlug} from "@/app/actions/getBlogs";
 
 async function BlogPost({slug}: {slug: string}) {
     const { ok, data } = await getBlogBySlug(slug);

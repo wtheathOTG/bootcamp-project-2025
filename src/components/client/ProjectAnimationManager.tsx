@@ -7,7 +7,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {SplitText} from "gsap/SplitText";
 import {Project} from "@/projectData";
 
-function ProjectAnimationManager({projects}: {projects: Project[]}) {
+function ProjectAnimationManager({projectLength}: {projectLength: number}) {
     useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -20,7 +20,7 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
         const cards = document.querySelectorAll(".project-card");
 
         const projectScrollDistance = 600;
-        scrollArea.style.height = `${container.offsetHeight + (projects.length) * projectScrollDistance}px`;
+        scrollArea.style.height = `${container.offsetHeight + (projectLength) * projectScrollDistance}px`;
 
 
         cards.forEach((card, i) => {
@@ -31,7 +31,7 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
         })
 
         const switchProject = (showIndex: number, direction: 1 | -1) => {
-            if (showIndex >= projects.length) {
+            if (showIndex >= projectLength) {
                 console.log("Project show index greater than project[].length");
                 return;
             }
@@ -61,18 +61,18 @@ function ProjectAnimationManager({projects}: {projects: Project[]}) {
         }
 
         const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-        projects.forEach((proj: Project, idx: number) => {
-            if (idx !== 0 ) {
+        for (let i = 0; i < projectLength; i++) {
+            if (i !== 0 ) {
                 ScrollTrigger.create({
                     trigger: pageContent,
-                    start: `top+=${(idx - 0.6) * projectScrollDistance} top+=${6 * rem}`,
-                    end: `top+=${(idx + 0.4) * projectScrollDistance} top+=${6 * rem}`,
-                    onEnter: () => {switchProject(idx, 1)},
-                    onLeaveBack: () => {switchProject(idx - 1, -1)},
+                    start: `top+=${(i - 0.6) * projectScrollDistance} top+=${6 * rem}`,
+                    end: `top+=${(i + 0.4) * projectScrollDistance} top+=${6 * rem}`,
+                    onEnter: () => {switchProject(i, 1)},
+                    onLeaveBack: () => {switchProject(i - 1, -1)},
                     //markers: true,
                 });
             }
-        });
+        }
 
         gsap.to(thumb, {
             y: `${scrollbar.offsetHeight * 2 / 3}`,

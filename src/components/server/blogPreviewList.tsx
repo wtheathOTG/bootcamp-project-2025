@@ -1,20 +1,9 @@
 import React from 'react';
 import BlogPreview from "@/components/server/blogPreview";
-import Blog, {BlogDocument} from "@/database/blogSchema";
-import connectDB from "@/database/db";
-
-async function getBlogs(): Promise<BlogDocument[]> {
-    await connectDB();
-
-    try {
-        return await Blog.find().sort({date: -1}).orFail();
-    } catch (err) {
-        return [];
-    }
-}
+import {getAllBlogs} from "@/app/actions/getBlogs";
 
 async function BlogPreviewList() {
-    const blogs = await getBlogs();
+    const blogs = await getAllBlogs();
 
     return (
         <div className="flex flex-col gap-y-8">

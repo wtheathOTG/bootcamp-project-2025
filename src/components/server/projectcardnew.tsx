@@ -1,17 +1,19 @@
 import React from 'react';
-import {Project} from "@/projectData";
-import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
 import ProjectGraphic from "@/components/server/ProjectGraphic";
+import {ProjectDoc} from "@/database/projectSchema";
+import RichText from "@/components/client/richText";
+
 
 type ProjectCardNewProps = {
-    proj: Project
+    proj: ProjectDoc
     className?: string
 }
 
 function ProjectCardNew({ proj, className }: ProjectCardNewProps) {
     return (
-        <Card className={`absolute top-0 h-full min-h-0 bg py-4 gap-y-4 ${className}`}>
+        <Card className={`absolute top-0 h-full w-full min-h-0 bg py-4 gap-y-4 ${className}`}>
             <CardHeader>
                 <CardTitle
                     className="w-full flex flex-col justify-start gap-y-1
@@ -19,7 +21,20 @@ function ProjectCardNew({ proj, className }: ProjectCardNewProps) {
                 >
                     <p>{proj.title}</p>
                     <p className="flex-shrink-0 whitespace-nowrap text-muted-foreground text-base">
-                        {proj.date}
+                        {
+                            proj.dateStart.toLocaleString("en-US", {
+                                month: "short",
+                                year: "numeric"
+                            })
+                            + " – " +
+                            (proj.dateEnd ?
+                                proj.dateEnd.toLocaleString("en-US", {
+                                    month: "short",
+                                    year: "numeric"
+                                }) :
+                                "Present"
+                            )
+                        }
                     </p>
                 </CardTitle>
                 {(proj.tags && proj.tags.length > 0) &&
@@ -29,16 +44,13 @@ function ProjectCardNew({ proj, className }: ProjectCardNewProps) {
                         ))}
                     </CardDescription>
                 }
-                {/*<CardAction*/}
-                {/*    className="flex-shrink-0 whitespace-nowrap text-muted-foreground"*/}
-                {/*>*/}
-                {/*    {proj.date}*/}
-                {/*</CardAction>*/}
             </CardHeader>
-            <CardContent className="space-y-2 text-sm">
-                {proj.description.map((paragraph, idx) => (
-                    <React.Fragment key={idx}>{paragraph}</React.Fragment>
-                ))}
+            <CardContent className="text-sm">
+                {/*<RichText paragraphs={proj.description} />*/}
+                <RichText paragraphs={proj.description} />
+                {/*{proj.description.map((paragraph, idx) => (*/}
+                {/*    <React.Fragment key={idx}>{paragraph}</React.Fragment>*/}
+                {/*))}*/}
             </CardContent>
             <CardFooter className="flex-grow">
                 <div

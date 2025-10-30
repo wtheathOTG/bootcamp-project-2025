@@ -1,24 +1,24 @@
 
 import React from 'react';
-import {projects} from "@/projectData";
 import ProjectScrollBar from "@/components/client/ProjectScrollBar";
 import ProjectAnimationManager from "@/components/client/ProjectAnimationManager";
 import ProjectCardNew from "@/components/server/projectcardnew";
+import {getAllProjects} from "@/app/actions/getProjects";
 
-function Page() {
-
+async function Page() {
+    const projects = await getAllProjects();
 
     return (
         <div id="project-scroll-area" className="h-full">
             <div id="project-container" className="sticky top-16 md:top-24 h-full max-h-[calc(100vh-8rem)] grid grid-cols-[0.25rem_1fr] gap-x-8">
-                <ProjectScrollBar projects={projects} />
+                <ProjectScrollBar projectLength={projects.length} />
                 <div className="w-full">
-                    {projects.map((project, index) => (
-                        <ProjectCardNew key={index} proj={project} className="project-card will-change-[opacity,transform]" />
+                    {projects.map((project, idx) => (
+                        <ProjectCardNew key={idx} proj={project} className="project-card will-change-[opacity,transform]" />
                     ))}
                 </div>
             </div>
-            <ProjectAnimationManager projects={projects}/>
+            <ProjectAnimationManager projectLength={projects.length}/>
         </div>
     );
 }
