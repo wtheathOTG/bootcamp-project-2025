@@ -1,3 +1,5 @@
+//Deprecated
+
 import {JSX} from "react";
 import {HybridTooltip, HybridTooltipContent, HybridTooltipTrigger, TouchProvider} from "@/components/ui/hybridtooltip";
 
