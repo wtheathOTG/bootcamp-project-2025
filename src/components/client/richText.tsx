@@ -1,5 +1,5 @@
 import React from 'react';
-import {InlineNodeDoc, ParagraphDoc} from "@/database/projectTypes";
+import {InlineNodeDoc, ParagraphDoc} from "@/database/projectSchema";
 import {HybridTooltip, HybridTooltipContent, HybridTooltipTrigger, TouchProvider} from "@/components/ui/hybridtooltip";
 
 function RichText({ paragraphs }: { paragraphs: ParagraphDoc[] }) {

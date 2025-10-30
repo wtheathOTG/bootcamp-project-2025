@@ -8,7 +8,7 @@ export async function getBlogBySlug(slug: string) {
     await connectDB();
 
     try {
-        const blog = await blogSchema.findOne({ slug }).orFail();
+        const blog = await Blog.findOne({ slug }).orFail();
         return { ok: true, data: blog };
     } catch (err) {
         return { ok: false, error: 'Blog not found.' };

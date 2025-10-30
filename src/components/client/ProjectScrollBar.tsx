@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import {Project} from "@/projectData";
 
 function ProjectScrollBar({projectLength}: {projectLength: number}) {
     return (

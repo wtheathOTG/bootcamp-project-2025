@@ -6,10 +6,8 @@ import {notFound} from "next/navigation";
 import {getBlogBySlug} from "@/app/actions/getBlogs";
 
 async function BlogPost({slug}: {slug: string}) {
-    const { ok, data } = await getBlogBySlug(slug);
+    const { ok, data: blog } = await getBlogBySlug(slug);
     if (!ok) notFound();
-
-    const blog = data
 
     return (
         <div className="text-foreground space-y-8">
@@ -26,7 +24,7 @@ async function BlogPost({slug}: {slug: string}) {
                     }
                 </div>
                 <p className="text-muted-foreground">
-                    {blog.date.toLocaleDateString("en-US", {
+                    {blog?.date.toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
                         day: "numeric",

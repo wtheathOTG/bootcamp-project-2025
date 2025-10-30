@@ -1,6 +1,13 @@
-import mongoose, {Schema, InferSchemaType, Model} from "mongoose";
+import mongoose, {Schema, Model} from "mongoose";
 
-const InlineNodeSchema = new Schema(
+export type InlineNodeDoc = {
+    type: string;
+    text?: string;
+    term?: string;
+    content?: string;
+};
+
+const InlineNodeSchema = new Schema<InlineNodeDoc>(
     {
         type: { type: String, required: true, enum: ['text', 'tooltip'] },
         text: { type: String, trim: true, required: false },
@@ -10,7 +17,12 @@ const InlineNodeSchema = new Schema(
     { _id: false }
 );
 
-const ParagraphSchema = new Schema(
+export type ParagraphDoc = {
+    type: string;
+    children: InlineNodeDoc[];
+};
+
+const ParagraphSchema = new Schema<ParagraphDoc>(
     {
         type: { type: String, required: true, enum: ['paragraph'], default: 'paragraph' },
         children: { type: [InlineNodeSchema], default: [] },
@@ -18,7 +30,17 @@ const ParagraphSchema = new Schema(
     { _id: false }
 );
 
-const ProjectSchema = new Schema(
+export type ProjectDoc = {
+    _id: string;
+    title: string;
+    dateStart: Date;
+    dateEnd?: Date;
+    description: ParagraphDoc[];
+    tags: string[];
+    src: string;
+}
+
+const ProjectSchema = new Schema<ProjectDoc>(
     {
         _id: { type: String, required: true },
         title: { type: String, required: true, trim: true },
@@ -31,7 +53,5 @@ const ProjectSchema = new Schema(
     { versionKey: false }
 );
 
-export type ProjectDoc = InferSchemaType<typeof ProjectSchema>;
-
 export const Project: Model<ProjectDoc> =
-    mongoose.models.projects || mongoose.model('projects', ProjectSchema);
+    mongoose.models.projects || mongoose.model<ProjectDoc>('projects', ProjectSchema);

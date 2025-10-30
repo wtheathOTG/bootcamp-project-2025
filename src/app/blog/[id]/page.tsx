@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import BlogSkeleton from "@/components/server/BlogSkeleton";
+import BlogSkeleton from "@/components/server/skeletons/BlogSkeleton";
 import BlogPost from "@/components/server/blogPost";
 
 // export async function generateMetadata({ params }: { params: Promise<{id: string}> }) {

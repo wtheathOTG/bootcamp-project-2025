@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import type {Metadata} from "next";
-import BlogPreviewListSkeleton from "@/components/server/blogPreviewListSkeleton";
+import BlogPreviewListSkeleton from "@/components/server/skeletons/blogPreviewListSkeleton";
 import BlogPreviewList from "@/components/server/blogPreviewList";
 
 export const metadata: Metadata = {
