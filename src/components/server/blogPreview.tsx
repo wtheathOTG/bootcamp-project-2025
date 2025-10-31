@@ -2,9 +2,9 @@ import React from 'react';
 import Link from "next/link";
 import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
-import {BlogDocument} from "@/database/blogSchema";
+import {BlogDoc} from "@/database/blogSchema";
 
-function BlogPreview({blog}: {blog: BlogDocument}) {
+function BlogPreview({blog}: {blog: BlogDoc}) {
     return (
         <Link href={`/blog/${blog.slug}`}>
             <Card className="group bg-transparent hover:bg-muted transition-all duration-200 ease-in-out">
