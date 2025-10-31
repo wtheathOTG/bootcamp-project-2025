@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function About() {
     return (
-        <div>
+        <div className="pb-16">
             <h2 className="text-2xl text-foreground font-medium pb-4">About</h2>
             <div className="space-y-4 text-foreground">
                 <p>
@@ -17,7 +17,7 @@ function About() {
                     interfaces. As a team member, I hope to bridge the gap between backend design and user experience.
                 </p>
             </div>
-            <div className="pb-16 pt-8">
+            <div className="pt-8">
                 <AspectRatio ratio={2/1} className="relative rounded-lg border border-border shadow-md overflow-hidden">
                     <Image
                         src="/pictures/headshot.JPG"
