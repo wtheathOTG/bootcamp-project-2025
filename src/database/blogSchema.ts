@@ -1,6 +1,18 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
-export interface Blog {
+export type CommentDoc = {
+    user: string;
+    comment: string;
+    time: Date;
+};
+
+const CommentSchema = new Schema<CommentDoc>({
+    user: { type: String, required: true },
+    comment: { type: String, required: true },
+    time: { type: Date, required: true, default: Date.now },
+});
+
+export type BlogDoc = {
     title: string;
     author: string;
     date: Date;
@@ -9,11 +21,10 @@ export interface Blog {
     imageAlt: string;
     tags?: string[];
     slug: string;
+    comments: CommentDoc[];
 }
 
-export interface BlogDocument extends Blog, Document {}
-
-const blogSchema = new Schema<BlogDocument>({
+const BlogSchema = new Schema<BlogDoc>({
     title: { type: String, required: true },
     author: { type: String, required: true },
     date: { type: Date, required: true, default: Date.now },
@@ -22,9 +33,10 @@ const blogSchema = new Schema<BlogDocument>({
     imageAlt: { type: String, required: true },
     tags: { type: [String], required: false },
     slug: { type: String, required: true, unique: true },
+    comments: { type: [CommentSchema], required: true, default: [] },
 });
 
-const Blog: Model<BlogDocument> =
-    mongoose.models.blogs || mongoose.model<BlogDocument>("blogs", blogSchema);
+const Blog: Model<BlogDoc> =
+    mongoose.models.blogs || mongoose.model<BlogDoc>("blogs", BlogSchema);
 
 export default Blog;

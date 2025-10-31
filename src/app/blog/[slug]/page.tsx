@@ -1,9 +1,10 @@
 import React, {Suspense} from 'react';
 import BlogSkeleton from "@/components/server/skeletons/BlogSkeleton";
 import BlogPost from "@/components/server/blogPost";
+import {getAllBlogs} from "@/app/actions/getBlogs";
 
-// export async function generateMetadata({ params }: { params: Promise<{id: string}> }) {
-//     const {id} = await params;
+// export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+//     const { slug } = await params;
 //     const blog = blogs.find(blog => blog.slug === id);
 //
 //     return {
@@ -11,17 +12,18 @@ import BlogPost from "@/components/server/blogPost";
 //     };
 // }
 
-// export async function generateStaticParams() {
-//     return blogs.map(blog => ({id: blog.slug}));
-// }
+export async function generateStaticParams() {
+    const blogs = await getAllBlogs();
+    return blogs.map(blog => ({slug: blog.slug}));
+}
 
-async function Page({ params }: { params: Promise<{id: string}> }) {
-    const {id} = await params;
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
 
     return (
         <div className="pb-16">
             <Suspense fallback={<BlogSkeleton />}>
-                <BlogPost slug={id}/>
+                <BlogPost slug={slug}/>
             </Suspense>
         </div>
     );

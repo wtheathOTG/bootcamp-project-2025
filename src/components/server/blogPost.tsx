@@ -4,6 +4,7 @@ import {AspectRatio} from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import {notFound} from "next/navigation";
 import {getBlogBySlug} from "@/app/actions/getBlogs";
+import Comment from "@/components/server/comment";
 
 async function BlogPost({slug}: {slug: string}) {
     const { ok, data: blog } = await getBlogBySlug(slug);
@@ -42,6 +43,15 @@ async function BlogPost({slug}: {slug: string}) {
                 </AspectRatio>
             </div>
             <p>{blog?.description}</p>
+            <div className="space-y-4">
+                <h3 className="text-2xl capitalize font-medium">Comments</h3>
+                {blog?.comments && blog.comments.length > 0 ?
+                    blog.comments?.map((comment, i) => (
+                        <Comment key={i} comment={comment} />
+                    )) :
+                    <p className="text-muted-foreground">No comments yet...</p>
+                }
+            </div>
         </div>
     );
 }
