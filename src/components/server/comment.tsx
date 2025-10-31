@@ -1,5 +1,6 @@
 import React from 'react';
 import {CommentDoc} from "@/database/blogSchema";
+import Markdown from "react-markdown";
 
 function parseCommentTime(time: Date) {
     const diffMs = new Date().getTime() - time.getTime();
@@ -44,7 +45,8 @@ function Comment({ comment }: { comment: CommentDoc }) {
                 <h3 className="font-medium">{comment.user}</h3>
                 <p>{parseCommentTime(comment.time)}</p>
             </div>
-            <p className="pl-8 text-muted-foreground">{comment.comment}</p>
+            <div className="pl-8 text-muted-foreground space-y-2">
+                <Markdown>{comment.comment}</Markdown></div>
         </div>
     );
 }
