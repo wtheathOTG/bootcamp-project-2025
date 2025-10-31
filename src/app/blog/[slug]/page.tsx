@@ -12,10 +12,11 @@ import {getAllBlogs} from "@/app/actions/getBlogs";
 //     };
 // }
 
-export async function generateStaticParams() {
-    const blogs = await getAllBlogs();
-    return blogs.map(blog => ({slug: blog.slug}));
-}
+// With the addition of comments, it doesn't make sense the statically generate pages
+// export async function generateStaticParams() {
+//     const blogs = await getAllBlogs();
+//     return blogs.map(blog => ({slug: blog.slug}));
+// }
 
 async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
