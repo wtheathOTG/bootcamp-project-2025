@@ -49,6 +49,7 @@ function ContactForm() {
                                 rows={5}
                                 placeholder="Add your message..."
                                 className="resize-none min-h-32"
+                                required
                             />
                         </Field>
                     </FieldGroup>

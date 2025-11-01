@@ -11,7 +11,7 @@ const ContactSchema = z.object({
     company: z.string().optional(), // honeypot
 });
 
-type ActionState = { status: 'idle' | 'sending' | 'sent' | 'error'; error?: string };
+export type ActionState = { status: 'idle' | 'sending' | 'sent' | 'error'; error?: string };
 
 export async function sendContact(prev: ActionState, formData: FormData): Promise<ActionState> {
     const from = process.env.CONTACT_FROM;

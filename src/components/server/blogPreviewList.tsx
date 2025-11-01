@@ -2,7 +2,7 @@
 
 import React from 'react';
 import BlogPreview from "@/components/server/blogPreview";
-import {getAllBlogs} from "@/app/actions/getBlogs";
+import {getAllBlogs} from "@/app/actions/blogActions";
 import {unstable_noStore} from "next/cache";
 
 async function BlogPreviewList() {

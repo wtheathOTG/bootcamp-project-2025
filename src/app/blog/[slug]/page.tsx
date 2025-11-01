@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import BlogSkeleton from "@/components/server/skeletons/BlogSkeleton";
 import BlogPost from "@/components/server/blogPost";
-import {getAllBlogs} from "@/app/actions/getBlogs";
+import {getAllBlogs} from "@/app/actions/blogActions";
 
 // export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
 //     const { slug } = await params;

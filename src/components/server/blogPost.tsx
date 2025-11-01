@@ -3,12 +3,21 @@ import {Badge} from "@/components/ui/badge";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import {notFound} from "next/navigation";
-import {getBlogBySlug} from "@/app/actions/getBlogs";
-import Comment from "@/components/server/comment";
+import {getBlogBySlug} from "@/app/actions/blogActions";
+import BlogCommentSection, {SerializableComment} from "@/components/client/BlogCommentSection";
+import {parseTimeFrom} from "@/lib/utils";
 
 async function BlogPost({slug}: {slug: string}) {
     const { ok, data: blog } = await getBlogBySlug(slug);
     if (!ok) notFound();
+
+    blog!.comments.sort((a, b) => b.time.getTime() - a.time.getTime());
+
+    const serializableComments: SerializableComment[] = blog!.comments.map((c: any) => ({
+        user: String(c.user),
+        comment: String(c.comment),
+        time: parseTimeFrom(c.time),
+    }));
 
     return (
         <div className="text-foreground space-y-8">
@@ -43,15 +52,7 @@ async function BlogPost({slug}: {slug: string}) {
                 </AspectRatio>
             </div>
             <p>{blog?.description}</p>
-            <div className="space-y-4">
-                <h3 className="text-2xl capitalize font-medium">Comments</h3>
-                {blog?.comments && blog.comments.length > 0 ?
-                    blog.comments?.map((comment, i) => (
-                        <Comment key={i} comment={comment} />
-                    )) :
-                    <p className="text-muted-foreground">No comments yet...</p>
-                }
-            </div>
+            <BlogCommentSection slug={slug} originalComments={serializableComments}/>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectScrollBar from "@/components/client/ProjectScrollBar";
 import ProjectCardNew from "@/components/server/projectcardnew";
 import ProjectAnimationManager from "@/components/client/ProjectAnimationManager";
-import {getAllProjects} from "@/app/actions/getProjects";
+import {getAllProjects} from "@/app/actions/projectActions";
 
 async function ProjectDisplay() {
     const projects = await getAllProjects();
