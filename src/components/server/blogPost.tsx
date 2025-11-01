@@ -6,6 +6,7 @@ import {notFound} from "next/navigation";
 import {getBlogBySlug} from "@/app/actions/blogActions";
 import BlogCommentSection, {SerializableComment} from "@/components/client/BlogCommentSection";
 import {parseTimeFrom} from "@/lib/utils";
+import {CommentDoc} from "@/database/blogSchema";
 
 async function BlogPost({slug}: {slug: string}) {
     const { ok, data: blog } = await getBlogBySlug(slug);
@@ -13,7 +14,7 @@ async function BlogPost({slug}: {slug: string}) {
 
     blog!.comments.sort((a, b) => b.time.getTime() - a.time.getTime());
 
-    const serializableComments: SerializableComment[] = blog!.comments.map((c: any) => ({
+    const serializableComments: SerializableComment[] = blog!.comments.map((c: CommentDoc) => ({
         user: String(c.user),
         comment: String(c.comment),
         time: parseTimeFrom(c.time),

@@ -34,7 +34,7 @@ function CommentForm(
             ...prev
         ]);
         handleClear();
-    }, [state.status]);
+    }, [state]);
 
     return (
         <form ref={formRef} action={formAction}>
