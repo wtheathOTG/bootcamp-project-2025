@@ -18,28 +18,6 @@ const neueMontrealMono = localFont({
     variable: "--font-right-grotesk-mono",
 });
 
-const rightGroteskMono = localFont({
-    src: [
-        { path: "./fonts/right-grotesk-mono/PPRightGroteskMono-Fine.otf", weight: "200", style: "normal" },
-        { path: "./fonts/right-grotesk-mono/PPRightGroteskMono-Regular.otf", weight: "400", style: "normal" },
-        { path: "./fonts/right-grotesk-mono/PPRightGroteskMono-RegularItalic.otf", weight: "400", style: "italic" },
-        { path: "./fonts/right-grotesk-mono/PPRightGroteskMono-Medium.otf", weight: "500", style: "normal" },
-        { path: "./fonts/right-grotesk-mono/PPRightGroteskMono-Bold.otf", weight: "700", style: "normal" },
-    ],
-    display: "swap",
-    variable: "--font-right-grotesk-mono",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Will Heath Personal Website",
   description: "A personal website for Will Heath.",

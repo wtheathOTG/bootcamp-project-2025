@@ -34,7 +34,7 @@ export async function getAllBlogs(): Promise<BlogDoc[]> {
     }
 }
 
-type CommentActionState = ActionState & { user?: string, comment?: string, time?: Date };
+export type CommentActionState = ActionState & { user?: string, comment?: string, time?: Date };
 
 export async function postComment(
     prev: CommentActionState,
@@ -42,7 +42,7 @@ export async function postComment(
 ): Promise<CommentActionState> {
     const raw = Object.fromEntries(formData.entries());
     const parsed = CommentFormSchema.safeParse(raw);
-    if (!parsed.success) return { status: 'error', error: 'Invalid form data.' };
+    if (!parsed.success) return { status: 'error', error: 'Invalid form data.'};
 
     const { username, message, company, slug } = parsed.data;
     if (company) return { status: 'sent' }; // honeypot
