@@ -5,7 +5,7 @@ import Blog, {CommentDoc} from "@/database/blogSchema";
  * @deprecated Comments are not available on portfolio sections because it
  *             doesn't make sense in my website context.
  */
-export default async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
     //Todo: validate schema before attempting to destructure
     const { username, message, company, slug } = await req.json();
 

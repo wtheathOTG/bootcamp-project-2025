@@ -4,7 +4,7 @@ import Blog, {CommentDoc} from "@/database/blogSchema";
 /**
  * @deprecated Replaced with Server Action
  */
-export default async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
     //Todo: validate schema before attempting to destructure
     //Validation is implemented in server action being used for this functionality
     const { username, message, company, slug } = await req.json();

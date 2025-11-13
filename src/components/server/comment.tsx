@@ -1,5 +1,4 @@
 import React from 'react';
-import {CommentDoc} from "@/database/blogSchema";
 import Markdown from "react-markdown";
 import {SerializableComment} from "@/components/client/BlogCommentSection";
 
